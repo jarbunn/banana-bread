@@ -24,10 +24,15 @@ class _RecipeScreenState extends State<RecipeScreen> {
     final currentStep = ingredients[currentStepIndex];
     return SizedBox(
       child: Container (
+        margin: const EdgeInsets.all(40),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(currentStep.image),
-            Text(currentStep.text),
+            Text(currentStep.header, style: const TextStyle(fontSize: 16),textAlign: TextAlign.center,),
+            Text(currentStep.body),
+            const SizedBox(height: 25),
             ElevatedButton(onPressed: nextStep, child: const Text('Next Step'),)
           ],
         ),

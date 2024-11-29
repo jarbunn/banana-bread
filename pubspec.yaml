@@ -65,6 +65,13 @@ flutter:
     - assets/banana.png
     - assets/eggs.png
     - assets/flour.png
+    - assets/baking-soda.png
+    - assets/bread.png
+    - assets/butter.png
+    - assets/mix.png
+    - assets/oven.png
+    - assets/sugar.png
+    - assets/vanilla.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

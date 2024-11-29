@@ -1,11 +1,12 @@
 class RecipeSteps {
-  const RecipeSteps(this.image, this.text);
+  const RecipeSteps(this.image, this.header, this.body);
 
   final String image;
-  final String text;
+  final String header;
+  final String body;
   List<Map<String, String>> get recipeData {
     final List<Map<String, String>> recipe = [];
-    recipe.add({'image': image, 'text': text});
+    recipe.add({'image': image, 'header': header, 'body': body});
     return recipe;
   }
 }

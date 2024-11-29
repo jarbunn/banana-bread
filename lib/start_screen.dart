@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 //needs to inheirt startQuiz function aka sending switchScreen to start recipe
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  const StartScreen(this.startRecipe, {super.key});
 
+  final void Function() startRecipe;
   @override
   Widget build(context) {
     return Center(
@@ -20,7 +21,7 @@ class StartScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, color: Colors.white)),
           const SizedBox(height: 30),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: startRecipe,
             label: const Text('Lets Begin!'),
             icon: const Icon(Icons.start),
             iconAlignment: IconAlignment.end,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:banana_bread/start_screen.dart';
+import 'package:banana_bread/recipe_screen.dart';
 
 class Recipe extends StatefulWidget {
   const Recipe({super.key});
@@ -17,8 +18,21 @@ class _RecipeState extends State<Recipe> {
   //Add resultsScreen function
   //Add restart recipe function
 
+  var activeScreen = 'start-screen';
+  void switchScreen() {
+    setState(() {
+      activeScreen = 'recipe-screen';
+    });
+  }
+
+
   @override
   Widget build(context) {
+    Widget screenWidget = StartScreen(switchScreen);
+    if (activeScreen == 'recipe-screen') {
+      screenWidget = const RecipeScreen();
+    }
+
     return MaterialApp(
         home: Scaffold(
       body: Container(
@@ -28,7 +42,7 @@ class _RecipeState extends State<Recipe> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
         )),
-        child: const StartScreen(),
+        child: screenWidget,
       ),
     ));
   }

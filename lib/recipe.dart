@@ -1,3 +1,5 @@
+import 'package:banana_bread/data/steps.dart';
+import 'package:banana_bread/instructions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:banana_bread/start_screen.dart';
 import 'package:banana_bread/recipe_screen.dart';
@@ -19,10 +21,20 @@ class _RecipeState extends State<Recipe> {
   //Add restart recipe function
 
   var activeScreen = 'start-screen';
+  var currentStep = 0;
   void switchScreen() {
     setState(() {
       activeScreen = 'recipe-screen';
     });
+
+  }
+
+  void nextStep(int index) {
+    if (index + 1 == ingredients.length) {
+      setState(() {
+        activeScreen = 'instructions-screen';
+    });
+    }
   }
 
 
@@ -30,7 +42,10 @@ class _RecipeState extends State<Recipe> {
   Widget build(context) {
     Widget screenWidget = StartScreen(switchScreen);
     if (activeScreen == 'recipe-screen') {
-      screenWidget = const RecipeScreen();
+      screenWidget = RecipeScreen(onSelectedStep: nextStep);
+    }
+    if (activeScreen == 'instructions-screen') {
+      screenWidget = InstructionsScreen();
     }
 
     return MaterialApp(

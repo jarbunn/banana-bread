@@ -1,9 +1,14 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:banana_bread/data/steps.dart';
 
 class RecipeScreen extends StatefulWidget{
-  const RecipeScreen({super.key});
+  const RecipeScreen({super.key, required this.onSelectedStep});
 
+  final void Function(int index) onSelectedStep;
+
+  @override
   State<RecipeScreen> createState() {
     return _RecipeScreenState();
   }
@@ -11,9 +16,10 @@ class RecipeScreen extends StatefulWidget{
 
 class _RecipeScreenState extends State<RecipeScreen> {
 
-  var currentStepIndex = 0;
+  int currentStepIndex = 0;
 
   void nextStep() {
+    widget.onSelectedStep(currentStepIndex);
     setState(() {
       currentStepIndex++;
     });

@@ -2,14 +2,14 @@ import 'package:banana_bread/data/steps.dart';
 import 'package:banana_bread/instructions_summary.dart';
 import 'package:flutter/material.dart';
 
-class InstructionsScreen extends StatelessWidget{
+class InstructionsScreen extends StatelessWidget {
   const InstructionsScreen({super.key, required this.onRestart});
 
   final void Function() onRestart;
 
   List<Map<String, Object>> get summaryData {
     List<Map<String, Object>> summary = [];
-    for (var i = 0; i < ingredients.length;i++) {
+    for (var i = 0; i < ingredients.length; i++) {
       summary.add({
         'index': i,
         'step': ingredients[i],
@@ -28,14 +28,19 @@ class InstructionsScreen extends StatelessWidget{
         margin: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InstructionsSummary(summaryData),
-              const SizedBox(height: 100,),
-              TextButton.icon(onPressed: onRestart, icon: const Icon(Icons.refresh),label: const Text('Restart Recipe')),
-              ],
+          children: [
+            InstructionsSummary(summaryData),
+            const SizedBox(
+              height: 100,
+            ),
+            TextButton.icon(
+                onPressed: onRestart,
+                style: TextButton.styleFrom(foregroundColor: Colors.white),
+                icon: const Icon(Icons.refresh),
+                label: const Text('Restart Recipe')),
+          ],
         ),
       ),
     );
   }
-
 }

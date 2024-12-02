@@ -18,12 +18,13 @@ class StartScreen extends StatelessWidget {
           ),
           const SizedBox(height: 80),
           const Text('Learn to make Banana Bread!',
-              style: TextStyle(fontSize: 24, color: Colors.white)),
+              style: TextStyle(fontSize: 24, color: Colors.black)),
           const SizedBox(height: 30),
           OutlinedButton.icon(
             onPressed: startRecipe,
-            label: const Text('Lets Begin!'),
-            icon: const Icon(Icons.start),
+            style: OutlinedButton.styleFrom(side: const BorderSide(color: Colors.white)),
+            label: const Text('Lets Begin!', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+            icon: const Icon(Icons.start, color: Colors.white,),
             iconAlignment: IconAlignment.end,
           )
         ],

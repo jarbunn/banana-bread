@@ -17,7 +17,7 @@ class InstructionsIdentifier extends StatelessWidget{
       ),
       child: Text(ingredientNumber.toString(), style: const TextStyle(
         fontWeight: FontWeight.bold,
-        color: Colors.green
+        color: Colors.deepOrange
       ),),
     );
   }

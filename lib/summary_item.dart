@@ -20,11 +20,11 @@ class SummaryItem extends StatelessWidget{
           children: [
             const SizedBox(height: 15),
             Text(
-              itemData['header'] as String, style: const TextStyle(color: Colors.purple, fontWeight: FontWeight.bold, fontSize: 16), textAlign: TextAlign.start,
+              itemData['header'] as String, style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16), textAlign: TextAlign.start,
               ),
             const SizedBox(height: 5),
             Text(
-              itemData['body'] as String, style: const TextStyle(color: Color.fromARGB(255, 206, 79, 228), fontSize: 14), textAlign: TextAlign.justify
+              itemData['body'] as String, style: const TextStyle(color: Colors.brown, fontSize: 14), textAlign: TextAlign.justify
               ),
               const SizedBox(height: 10),
           ],

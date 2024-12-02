@@ -8,12 +8,12 @@ class InstructionsIdentifier extends StatelessWidget{
   Widget build(BuildContext context) {
     final ingredientNumber = index + 1;
     return Container(
-      height: 30,
-      width: 30,
+      height: 40,
+      width: 40,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Colors.orange,
-        borderRadius: BorderRadius.circular(100)
+        borderRadius: BorderRadius.circular(100),
       ),
       child: Text(ingredientNumber.toString(), style: const TextStyle(
         fontWeight: FontWeight.bold,

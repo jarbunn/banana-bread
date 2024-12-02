@@ -3,7 +3,9 @@ import 'package:banana_bread/instructions_summary.dart';
 import 'package:flutter/material.dart';
 
 class InstructionsScreen extends StatelessWidget{
-  const InstructionsScreen({super.key});
+  const InstructionsScreen({super.key, required this.onRestart});
+
+  final void Function() onRestart;
 
   List<Map<String, Object>> get summaryData {
     List<Map<String, Object>> summary = [];
@@ -11,6 +13,7 @@ class InstructionsScreen extends StatelessWidget{
       summary.add({
         'index': i,
         'step': ingredients[i],
+        'header': ingredients[i].header,
         'body': ingredients[i].body
       });
     }
@@ -26,7 +29,9 @@ class InstructionsScreen extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              InstructionsSummary(summaryData)
+              InstructionsSummary(summaryData),
+              const SizedBox(height: 100,),
+              TextButton.icon(onPressed: onRestart, icon: const Icon(Icons.refresh),label: const Text('Restart Recipe')),
               ],
         ),
       ),

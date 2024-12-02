@@ -37,6 +37,13 @@ class _RecipeState extends State<Recipe> {
     }
   }
 
+  void restartRecipe() {
+    currentStep = 0; 
+    setState(() {
+      activeScreen = 'start-screen';
+    });
+  }
+
 
   @override
   Widget build(context) {
@@ -45,7 +52,7 @@ class _RecipeState extends State<Recipe> {
       screenWidget = RecipeScreen(onSelectedStep: nextStep);
     }
     if (activeScreen == 'instructions-screen') {
-      screenWidget = InstructionsScreen();
+      screenWidget = InstructionsScreen(onRestart: restartRecipe,);
     }
 
     return MaterialApp(
